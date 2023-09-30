@@ -1,4 +1,3 @@
-from flask import Blueprint, request
 from flask_restx import Resource
 
 from app.api.service import TeamService
@@ -25,7 +24,7 @@ class TeamControler(Resource):
 	@namespace.expect(team_update_model)
 	@namespace.marshal_with(team_model)
 	def put(self, team_id: int):
-		return TeamService.update(team_id, request.args)
+		return TeamService.update(team_id, namespace.payload)
 
 	@namespace.marshal_with(team_model)
 	def delete(self, team_id: int):
