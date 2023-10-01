@@ -35,4 +35,10 @@ flask run
 ```
 
 ## Usando a API
-Para usar a API, pode usar Postman ou a documentação do Swagger em http://localhost:5000/teams
+Pode usar Postman importando a coleção no arquivo 'API-REST-FLASK.postman_collection.json' ou a documentação do Swagger em http://localhost:5000/teams
+
+Além disso, pode-se rodar o arquivo de teste com o comando:
+
+```
+python ./client/main.py
+```

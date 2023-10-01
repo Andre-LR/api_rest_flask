@@ -35,5 +35,6 @@ class TeamRepository:
 	@save_csv
 	def delete(team_id: int):
 		campaing = TeamRepository.get(team_id)
-		db.campains.remove(campaing)
+		if campaing is not None:
+			db.campains.remove(campaing)
 		return campaing
