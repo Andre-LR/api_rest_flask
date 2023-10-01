@@ -8,7 +8,7 @@ def init_api(app: Flask):
 	blueprint = Blueprint('Teams', __name__)
 	api = Api(blueprint, title='Team API')
 
-	api.add_namespace(namespace)
+	api.add_namespace(namespace, path='/')
 
 	app.register_blueprint(blueprint, url_prefix='/teams')
 	

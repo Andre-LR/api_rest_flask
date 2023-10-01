@@ -1,5 +1,5 @@
 from app.database import db
-from app.models import Campaing
+from app.models.Campaing import Campaing
 
 from app.decorators import save_csv
 
@@ -24,9 +24,11 @@ class TeamRepository:
 	@save_csv
 	def update(team_id: int, payload: dict):
 		campaing = TeamRepository.get(team_id)
-		for key, value in payload.items():
-			setattr(campaing, key, value)
-		return campaing
+		if campaing is not None:
+			for key, value in payload.items():
+				setattr(campaing, key, value)
+			return campaing
+		return None
 
 	@staticmethod
 	@save_csv
