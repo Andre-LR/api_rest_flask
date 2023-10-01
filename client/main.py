@@ -10,7 +10,7 @@ headers = {
 
 def consulta():
 	res = requests.get(f'{URL}/12')
-	print(res)
+	print(res.json())
 
 def insercao():
 	data = {
@@ -30,18 +30,18 @@ def insercao():
 		'average_value': 834588,
 	}
 	res = requests.post(f'{URL}', data=json.dumps(data), headers=headers)
-	print(res)
+	print(res.json())
 
 def atualizacao():
 	data = {
 		'position': 1
 	}
 	res = requests.put(f'{URL}/12', data=json.dumps(data), headers=headers)
-	print(res)
+	print(res.json())
 
 def delecao():
 	res = requests.delete(f'{URL}/123')
-	print(res)
+	print(res.json())
 
 consulta()
 insercao()

@@ -3,6 +3,7 @@ from app.models.Campaing import Campaing
 
 from app.decorators import save_csv
 
+
 class TeamRepository:
 
 	@staticmethod
@@ -16,7 +17,7 @@ class TeamRepository:
 	@save_csv
 	def create(payload: dict):
 		last_id = db.campains[-1].id
-		campain = Campaing.Campaing(id=last_id+1, **payload)
+		campain = Campaing(id=last_id+1, **payload)
 		db.campains.append(campain)
 		return campain
 
