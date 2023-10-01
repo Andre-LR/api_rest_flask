@@ -39,24 +39,27 @@ class Database:
 		
 		i = 0
 		for d in data:
-			campain = Campaing(
-				id=i,
-				year=d[0],
-				position=d[1],
-				name=d[2],
-				wins=d[3],
-				defeats=d[4],
-				draws=d[5],
-				goals_for=d[6].split(':')[0],
-				goals_against=d[6].split(':')[1],
-				goals_difference=d[7],
-				players_quantity=d[8],
-				age_average=float(d[9].replace(',', '.')),
-				foreigners=d[10],
-				total_value=d[11],
-				average_value=d[12]
-			)
-			self.campains.append(campain)
-			i+=1
+			if d is None or d == []:
+				continue
+			else:
+				campain = Campaing(
+					id=i,
+					year=d[0],
+					position=d[1],
+					name=d[2],
+					wins=d[3],
+					defeats=d[4],
+					draws=d[5],
+					goals_for=d[6].split(':')[0],
+					goals_against=d[6].split(':')[1],
+					goals_difference=d[7],
+					players_quantity=d[8],
+					age_average=float(d[9].replace(',', '.')),
+					foreigners=d[10],
+					total_value=d[11],
+					average_value=d[12]
+				)
+				self.campains.append(campain)
+				i+=1
 
 db = Database()

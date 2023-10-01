@@ -16,7 +16,7 @@ class TeamRepository:
 	@save_csv
 	def create(payload: dict):
 		last_id = db.campains[-1].id
-		campain = Campaing(id=last_id+1, **payload)
+		campain = Campaing.Campaing(id=last_id+1, **payload)
 		db.campains.append(campain)
 		return campain
 
